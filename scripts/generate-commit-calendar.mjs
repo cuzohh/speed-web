@@ -110,7 +110,7 @@ function buildSvg({ counts, start, end, totalCommits, latestCommit }) {
   const cellSize = 12;
   const gap = 3;
   const left = 32;
-  const top = 28;
+  const top = 44;
   const right = 16;
   const bottom = 30;
   const width = left + columnCount * (cellSize + gap) - gap + right;
@@ -131,7 +131,8 @@ function buildSvg({ counts, start, end, totalCommits, latestCommit }) {
     `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}" role="img" aria-labelledby="title description">`,
     `<title id="title">Private speed repository commit calendar</title>`,
     `<desc id="description">${escapeXml(totalLabel)}. ${escapeXml(latestLabel)}.</desc>`,
-    `<style>text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;fill:#57606a;font-size:10px}.stat{font-size:11px;font-weight:600;fill:#24292f}.day{font-size:9px}</style>`,
+    `<style>text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;fill:#57606a;font-size:10px}.stat{font-size:11px;font-weight:600;fill:#24292f}.day{font-size:9px}.background{fill:#ffffff}@media(prefers-color-scheme:dark){text{fill:#8b949e}.stat{fill:#c9d1d9}.background{fill:#0d1117}}</style>`,
+    `<rect class="background" x="0" y="0" width="${width}" height="${height}" rx="8"/>`,
     `<text class="stat" x="${left}" y="12">${escapeXml(totalLabel)}</text>`,
     `<text x="${left}" y="23">${escapeXml(latestLabel)}</text>`,
   );
