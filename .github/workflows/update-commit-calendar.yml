@@ -2,11 +2,17 @@ name: Update private commit calendar
 
 on:
   workflow_dispatch:
+  repository_dispatch:
+    types: [speed-commit]
   schedule:
     - cron: "17 4 * * *"
 
 permissions:
   contents: write
+
+concurrency:
+  group: speed-commit-calendar
+  cancel-in-progress: true
 
 jobs:
   update:

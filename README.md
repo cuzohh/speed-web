@@ -15,7 +15,9 @@ daily commit counts are published; commit messages and source code remain privat
 
 Add an Actions secret named `SPEED_REPO_TOKEN` with read-only Contents access to
 the private `cuzohh/speed` repository, then run **Update private commit calendar**
-once. The workflow refreshes the image daily.
+once. Add `SPEED_WEB_TOKEN` to private `speed` with Contents write access to
+`speed-web` for immediate refreshes after each push. The daily schedule remains
+as a fallback.
 
 </details>
 
