@@ -1,0 +1,38 @@
+name: Update private commit calendar
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 4 * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out speed-web
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Generate calendar
+        env:
+          SPEED_REPO_TOKEN: ${{ secrets.SPEED_REPO_TOKEN }}
+        run: node scripts/generate-commit-calendar.mjs --repo cuzohh/speed
+
+      - name: Commit updated calendar
+        run: |
+          if git diff --quiet -- assets/speed-commit-calendar.svg; then
+            echo "Calendar is already current."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/speed-commit-calendar.svg
+          git commit -m "chore: update speed commit calendar"
+          git push
