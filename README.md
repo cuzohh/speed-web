@@ -10,3 +10,12 @@ daily commit counts are published; commit messages and source code remain privat
 
 [![Private speed repository commit calendar](./assets/speed-commit-calendar.svg)](https://github.com/cuzohh/speed)
 
+<details>
+<summary>Maintainer setup</summary>
+
+Add an Actions secret named `SPEED_REPO_TOKEN` with read-only Contents access to
+the private `cuzohh/speed` repository, then run **Update private commit calendar**
+once. The workflow refreshes the image daily.
+
+</details>
+
