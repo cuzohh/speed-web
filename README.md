@@ -12,11 +12,10 @@ Activity from the private repository, shown for the trailing year.
 <details>
 <summary>Maintainer setup</summary>
 
-Add an Actions secret named `SPEED_REPO_TOKEN` with read-only Contents access to
-the private `cuzohh/speed` repository, then run **Update private commit calendar**
-once. Add `SPEED_WEB_TOKEN` to private `speed` with Contents write access to
-`speed-web` for immediate refreshes after each push. The daily schedule remains
-as a fallback.
+Add an Actions secret with read-only Contents access to
+the private repository, then run **Update private commit calendar**
+once. Add token to private with Contents write access to
+`speed-web` for immediate refreshes after each push.
 
 </details>
 
